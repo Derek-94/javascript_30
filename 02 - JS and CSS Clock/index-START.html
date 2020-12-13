@@ -58,17 +58,28 @@
 
     .hand {
       width: 50%;
+      border-radius: 40%;
       height: 6px;
       background: black;
       position: absolute;
       top: 50%;
+      
+      /* for making rotate in standard of right end  */
+      transform-origin: 100%;
+
+      /* for make hands vertical ... without this, hands will be in horizontal. */
+      transform: rotate(90deg);
+
+      /* make clicking animation more softer. */
+      transition: all 0.1s cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+
+    .hour-hand{
+      background: powderblue;
     }
 
   </style>
 
-  <script>
-
-
-  </script>
+  <script src = "src/index.js"></script>
 </body>
 </html>
