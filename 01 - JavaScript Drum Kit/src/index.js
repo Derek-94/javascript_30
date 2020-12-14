@@ -9,6 +9,12 @@ function playSound(){
 
     // audio play
     let audioKey = document.querySelector(`audio[data-key = "${currentKeyCode}"]`);
+    
+    // rewind to the start ... if we keep pressing the same key continuously,
+    // it will take some time to play it.
+    // for not to wait that time, we have to REWIND it
+    audioKey.currentTime = 0;
+   
     audioKey.play();
 
     // remove playing class 
