@@ -46,8 +46,25 @@
   <ul id="bands"></ul>
 
 <script>
-const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+  let bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+  const cutOffTitle = (bandName) => {
+    if(bandName.startsWith("A ")) {
+      return bandName.substring(2);
+    }
+    else if(bandName.startsWith("The ")) {
+      return bandName.substring(4);
+    }
+    else {
+      return bandName.substring(3);
+    }
+  }
+
+  const changeTitle = (band) => (band.startsWith("A ") || band.startsWith("The ") || band.startsWith("An ")) ? cutOffTitle(band) : band;
+  
+  const result = bands.sort( (a, b) => changeTitle(a) > changeTitle(b) ? 1 : -1 );
+
+  document.querySelector("#bands").innerHTML = result.map(el => `<li>${el}</li>`).join("");
 
 </script>
 
