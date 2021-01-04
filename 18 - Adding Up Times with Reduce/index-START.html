@@ -182,6 +182,30 @@
     </li>
   </ul>
 <script>
+
+  const timeNodes = [...document.querySelectorAll("[data-time]")];
+  // const timeNodes = Array.from(document.querySelectorAll("[data-time]")); 도 된다.
+
+  const seconds = timeNodes.map(node => node.dataset.time).map(
+    time => {
+      const [mins, secs] = time.split(":").map(parseFloat);
+      // const [mins, secs] = time.split(":").map(function (str) {
+        // return parseFloat(str);
+      // }); 와 같다. 
+      return (mins * 60) + secs;
+    }
+  ).reduce((total, eachSeconds) => total + eachSeconds);
+
+  let convertingSeconds = seconds;
+
+  const hours = Math.floor(convertingSeconds / 3600);
+  convertingSeconds = convertingSeconds % 3600;
+
+  const mins = Math.floor(convertingSeconds / 60);
+  convertingSeconds = convertingSeconds % 60;
+
+  console.log(`${hours}:${mins}:${convertingSeconds}`);
+
 </script>
 </body>
 </html>
