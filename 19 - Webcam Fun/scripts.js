@@ -33,7 +33,7 @@ const paintToCanvas = () => {
         
         // and then mess with them,
         // pixels = redEffect(pixels);
-        // pixels = RGBSplit(pixels);
+         pixels = RGBSplit(pixels);
         // ctx.globalAlpha = 0.8;
         pixels = greenScreen(pixels);
 
