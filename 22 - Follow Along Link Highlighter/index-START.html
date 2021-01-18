@@ -34,18 +34,25 @@
     document.body.append(highlight);
 
     function highlightLink() {
+      console.log(this);
       const linkCoords = this.getBoundingClientRect();
-      console.log(linkCoords);
       const coords = {
       width: linkCoords.width,
       height: linkCoords.height,
       top: linkCoords.top + window.scrollY,
       left: linkCoords.left + window.scrollX
-    };
+      };
 
     // 이걸로는 안됨. 왜? --> 함수 선언 문 정리.
-    // const highlightLink () =>{
-
+    // const highlightLink = () =>{
+    //   console.log(this);
+    //   const linkCoords = this.getBoundingClientRect();
+    //   const coords = {
+    //   width: linkCoords.width,
+    //   height: linkCoords.height,
+    //   top: linkCoords.top + window.scrollY,
+    //   left: linkCoords.left + window.scrollX
+    //   };
     // }
 
     highlight.style.width = `${coords.width}px`;
