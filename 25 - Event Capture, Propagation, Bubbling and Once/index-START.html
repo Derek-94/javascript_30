@@ -45,12 +45,12 @@
   const divs = document.querySelectorAll("div");
 
   function logText(e) {
+    e.stopPropagation();
     console.log(this.classList.value);
-    setTimeout( () => console.clear(), 1000)
   }
 
   divs.forEach(div => div.addEventListener("click", logText, {
-    capture: true
+    once: true
   }));
 
 </script>
