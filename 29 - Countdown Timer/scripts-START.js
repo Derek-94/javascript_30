@@ -40,9 +40,17 @@ function displayEndTime(timestamp) {
     endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
   }
 
-  function startTimer () {
-      const seconds = parseInt(this.dataset.time);
-      timer(seconds);
-  }
-  
-  buttons.forEach(button => button.addEventListener("click", startTimer))
+function startTimer () {
+    const seconds = parseInt(this.dataset.time);
+    timer(seconds);
+}
+
+buttons.forEach(button => button.addEventListener("click", startTimer))
+
+document.customForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const mins = this.minutes.value;
+console.log(mins);
+timer(mins * 60);
+this.reset();
+});
